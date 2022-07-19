@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="logo">
+            <img src="./maxresdefault.jpg" alt="logo">
+        </div>
+    </header>
+    <main class="hiro" id="hiro">
+        <button id="start" onclick="start()" class="button_start animate__animated animate__fadeInDown"><h1 class="animate__animated animate__flash">Comenzar</h1></button>
+        <div id="instrucciones">
+            <div class="card_instrucciones" id="cardInstrucciones">
+                <p>Antes de comenzar estos son algunos aspectos a tener en cuenta:<br>
+                    1.	Colócate tus audífonos. <br>
+                    2.	Encuentra un lugar silencioso donde puedas realizar la prueba. <br>
+                    3.	Tienes que estar muy atento y presionar el botón “Lo escuche!”, en el preciso instante en el que empieces a percibir el sonido.
+                </p>
+                <a onclick="preparacion()" class="link">OK, CONTINUAR</a>
+            </div>
+        </div>
+        <div id="controles" class="controles">
+            <div class="top_controls">
+                <div>
+                    <input type="range" id="db" step="1" min="0" max="120" oninput="actualizarDB(this.value)">
+                    <p id="pDB"></p>
+                </div>
+                <div>
+                    <label for="R">Oido Derecho</label>
+                    <input type="checkbox" id="R">
+                    <label for="L">Oido Izquierdo</label>
+                    <input type="checkbox" id="L">
+                </div>
+            </div>
+            <!-- <div class="cover" id="cover">
+                <div class="bg_color"></div>
+                <div class="wave w1"></div>
+                <div class="wave w2"></div>
+            </div> -->
+            <div class="cover" id="cover">
+                <div class="burbujas">
+                    <div class="burbuja"></div>
+                    <div class="burbuja"></div>
+                    <div class="burbuja"></div>
+                    <div class="burbuja"></div>
+                    <div class="burbuja"></div>
+                    <div class="burbuja"></div>
+                    <img src="./audiometria.png" alt="" class="img_audio">
+                    <div class="burbuja"></div>
+                    <div class="burbuja"></div>
+                    <div class="burbuja"></div>
+                    <div class="burbuja"></div>
+                </div>
+            </div>
+            <div class="switch-button" style="display: flex;">
+                <!-- <a onclick="generarPDF()">PDF</a> -->
+                <!-- Checkbox -->
+                <p>SPL</p>
+                <input type="checkbox" name="switch-button" id="switch-label" class="switch-button__checkbox" onchange="changeGraphic()">
+                <!-- Botón -->
+                <label for="switch-label" class="switch-button__label"></label>
+                <p>HL</p>
+            </div>
+            <div id="graph" class="graph">
+                <canvas id="myChartSPL" class="grafico"></canvas>
+                <canvas id="myChartHL" class="grafico" style="display: none;"></canvas>
+            </div>
+            <div class="botonEscuchar">
+                <button id="siEscuche" onclick="siEscuche()">Lo escuche!</button>
+            </div>
+            <!-- <button onclick="noEscuche()">No escuche</button> -->
+        </div>
+        
+    </main>
+    <Script src="./index.js"></Script>
+    
+</body>
+</html>
