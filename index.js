@@ -97,7 +97,7 @@ function asignarFrecuencia(){
 }
 
 const amplitudRef = 1   
-const pref = 1.58865646944856  //valor de sensibilidad en pascales -- 108db a 1k-0.17V A 1
+const pref = 0.2  //valor de sensibilidad en pascales -- 108db a 1k-0.17V A 1
 
 function playTone(){
     
@@ -108,9 +108,9 @@ function playTone(){
         oscillator.disconnect()
     }
     volumen = ((10**(db/20))*0.00002);
-    console.log(volumen);
+    console.log("presion:"+volumen);
     amp = (amplitudRef*volumen)/pref // A = (amp_ref*2)/5.02 A---108db---0.17V---A=1
-    amp = (amp/0.1870828693)
+    console.log("amplitud: "+amp);
     // console.log(amp);
 
     // x = amp*Math.sin((2*Math.PI*1000))
